@@ -7,5 +7,12 @@ module Subscribem
       @account = Subscribem::Account.new
     end
 
+
+    def create
+      @account = Subscribem::Account.create(account_params)
+      flash[:success] = "Your account has been successfully created."
+      redirect_to subscribem.root_url
+    end
+
   end
 end
