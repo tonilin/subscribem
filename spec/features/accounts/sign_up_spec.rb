@@ -10,6 +10,9 @@ feature 'Accounts' do
     fill_in 'Password confirmation', :with => "password"
 
     click_button "Create Account"
+
+    page.should have_content("Signed in as subscribem@example.com")
+    
     success_message = "Your account has been successfully created."
     page.should have_content(success_message)
   end
