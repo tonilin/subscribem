@@ -7,6 +7,7 @@ Subscribem::Engine.routes.draw do
     scope :module => "account" do
       root :to => "dashboard#index", :as => :account_root
       get "/sign_in", :to => "sessions#new"
+      post "/sign_in", :to => "sessions#create", :as => :sessions
     end
 
   end
