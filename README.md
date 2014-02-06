@@ -24,7 +24,7 @@ $ bundle install
 
 Add following line to `config/routes.rb`
 
-```
+```ruby
 mount Subscribem::Engine, :at => "/"
 ```
 
@@ -56,8 +56,8 @@ Dummy::Application.config.session_store :cookie_store, key: '_dummy_session', do
 #### Launch the app
 
 ```bash
-powder link 
-powder open
+$ powder link 
+$ powder open
 ```
 
 And then you can see a simple authentication with subdomain
