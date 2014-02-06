@@ -27,5 +27,13 @@ module Subscribem
     helper_method :user_signed_in?
 
 
+    def authenticate_user!
+      unless user_signed_in?
+        flash[:notice] = "Please sign in."
+        redirect_to "/sign_in"
+      end
+    end
+
+
   end
 end
