@@ -17,6 +17,17 @@ module Subscribem
       self.subdomain = subdomain.to_s.downcase
     end
 
+    def self.create_with_owner(params={})
+      account = new(params)
+      if account.save
+        account.users << account.owner
+      end
+      
+      account
+    end
+
+
+
 
 
   end
