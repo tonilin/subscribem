@@ -5,6 +5,8 @@ module Subscribem
 
     validates :subdomain, :presence => true, :uniqueness => true
 
+    EXCLUDED_SUBDOMAINS = %w(admin)
+    validates_exclusion_of :subdomain, :in => EXCLUDED_SUBDOMAINS, :message => "is not allowed. Please choose another subdomain."
 
   end
 end
