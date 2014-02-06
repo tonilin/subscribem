@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '2.14.0'
   s.add_development_dependency 'capybara', '2.1.0'
   s.add_dependency "bcrypt-ruby", "3.1.2"
+  s.add_dependency "warden", "1.2.3"
 
   s.add_development_dependency "sqlite3"
 end
