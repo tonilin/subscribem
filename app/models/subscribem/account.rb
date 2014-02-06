@@ -8,5 +8,11 @@ module Subscribem
     EXCLUDED_SUBDOMAINS = %w(admin)
     validates_exclusion_of :subdomain, :in => EXCLUDED_SUBDOMAINS, :message => "is not allowed. Please choose another subdomain."
 
+    before_validation do
+      self.subdomain = subdomain.to_s.downcase
+    end
+
+
+
   end
 end
