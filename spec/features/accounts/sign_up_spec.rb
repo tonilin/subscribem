@@ -16,7 +16,7 @@ feature 'Accounts' do
     
     success_message = "Your account has been successfully created."
     page.should have_content(success_message)
-    page.current_url.should == "http://test.example.com/subscribem/"
+    page.current_url.should == "http://test.example.com/"
   end
 
 
@@ -32,7 +32,7 @@ feature 'Accounts' do
     fill_in 'Password confirmation', :with => 'password'
     click_button 'Create Account'
 
-    page.current_url.should == 'http://www.example.com/subscribem/accounts'
+    page.current_url.should == 'http://www.example.com/accounts'
     page.should have_content('Sorry, your account could not be created.')
     page.should have_content('Subdomain has already been taken')
   end
@@ -47,7 +47,7 @@ feature 'Accounts' do
     fill_in 'Password confirmation', :with => "password"
     click_button "Create Account"
 
-    page.current_url.should == "http://www.example.com/subscribem/accounts"
+    page.current_url.should == "http://www.example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
     page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
   end
@@ -62,7 +62,7 @@ feature 'Accounts' do
     fill_in 'Password confirmation', :with => "password"
     click_button "Create Account"
 
-    page.current_url.should == "http://www.example.com/subscribem/accounts"
+    page.current_url.should == "http://www.example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
     page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
   end
