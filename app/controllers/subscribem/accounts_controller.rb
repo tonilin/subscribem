@@ -14,5 +14,12 @@ module Subscribem
       redirect_to subscribem.root_url
     end
 
+    private
+
+    def account_params
+      params.require(:account).permit(:name)
+    end
+
+
   end
 end
