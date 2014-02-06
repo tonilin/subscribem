@@ -28,12 +28,24 @@ feature 'User sign in' do
       page.should have_content("Invalid email or password.")
       page.current_url.should == sign_in_url
     end
-    
+
     scenario "attempts sign in with an invalid email address and fails" do
       visit subscribem.root_url(:subdomain => account.subdomain)
       page.current_url.should == sign_in_url
       page.should have_content("Please sign in.")
       fill_in "Email", :with => "foo@example.com"
+      fill_in "Password", :with => "password"
+      click_button "Sign in"
+      page.should have_content("Invalid email or password.")
+      page.current_url.should == sign_in_url
+    end
+
+    scenario"cannot signin if not apart of this subdomain" do
+      other_account = FactoryGirl.create(:account)
+      visit subscribem.root_url(:subdomain => account.subdomain)
+      page.current_url.should == sign_in_url
+      page.should have_content("Please sign in.")
+      fill_in "Email", :with => other_account.owner.email
       fill_in "Password", :with => "password"
       click_button "Sign in"
       page.should have_content("Invalid email or password.")
