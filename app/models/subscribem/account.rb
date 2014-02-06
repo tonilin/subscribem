@@ -1,6 +1,10 @@
 module Subscribem
   class Account < ActiveRecord::Base
     belongs_to :owner, :class_name => "Subscribem::User"
+    has_many :members, :class_name => "Subscribem::Member"
+    has_many :users, :through => :members
+
+
     accepts_nested_attributes_for :owner
 
     validates :subdomain, :presence => true, :uniqueness => true
