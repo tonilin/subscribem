@@ -18,7 +18,7 @@ module Subscribem
       env["warden"].set_user(@account, :scope => :account)
       flash[:success] = "Your account has been successfully created."
       
-      redirect_to subscribem.root_url
+      redirect_to subscribem.root_url(:subdomain => @account.subdomain)
     end
 
     private
