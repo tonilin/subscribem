@@ -32,12 +32,12 @@ feature 'Accounts' do
     fill_in 'Password confirmation', :with => 'password'
     click_button 'Create Account'
 
-    page.current_url.should == 'http://example.com/accounts'
+    page.current_url.should == 'http://www.example.com/subscribem/accounts'
     page.should have_content('Sorry, your account could not be created.')
     page.should have_content('Subdomain has already been taken')
   end
 
 
 
-  
+
 end
